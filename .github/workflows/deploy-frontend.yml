@@ -17,8 +17,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18'  # Specify your Node.js version
-        - name: Change to Frontend Directory
-          run: cd frontend
+      - name: Change to Frontend Directory
+        run: cd frontend
 
 
       - name: Install Dependencies
