@@ -41,7 +41,7 @@ function SongList() {
   return (
 
     <div>
-      {/* <h1>Song List</h1> */}
+      <h1 className='text-white text-center text-xl pt-2'>Karaoke Party</h1>
 
       <div className="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
         <div className="md:flex">
@@ -88,7 +88,7 @@ function SongItem({ item }: { item: Video }) {
 
   }
   return (
-    <li className="max-w-2xl mx-auto bg-gray-100 rounded-2xl border-2 border-gray-300 shadow-xl overflow-hidden hover:bg-gray-50 hover:border-blue-500 my-4 cursor-pointer" onClick={() => handleClick(item)}>
+    <li className="transition-all delay-50 max-w-2xl mx-auto bg-gray-100 rounded-2xl border-2 border-gray-300 shadow-xl overflow-hidden hover:bg-purple-800 hover:text-white  my-4 cursor-pointer" onClick={() => handleClick(item)}>
       <div className="flex">
         <div className="flex-1 p-5">
           <p className="text-lg font-semibold">{item.title}</p>
