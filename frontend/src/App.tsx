@@ -3,6 +3,7 @@
 import './App.css'
 import SongList from './components/SongList'
 import retroBg from './assets/retro-bg.jpg';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <SongList />
         </div>
       </div>
+      <Footer/>
     </>
   )
 }
