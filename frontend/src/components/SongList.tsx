@@ -13,6 +13,16 @@ function SongList() {
         setList(getList(searchQuery).sort((a, b) => a.title.localeCompare(b.title)))
     }, [searchQuery]);
 
+
+    const searchResult = () => {
+      if (list.length > 0) {
+        return <div className="text-center text-gray-500">Found {list.length} matches</div>;
+      } else {
+        return <div className="text-center text-gray-500">No songs found</div>;
+      }
+    };
+
+
     console.log(">>>", list.length)
     return (
 
@@ -37,6 +47,9 @@ function SongList() {
         </div>
       </div>
     </div>
+    {searchQuery && searchResult()}
+
+
   </div>
 
 
