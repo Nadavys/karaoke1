@@ -29,8 +29,6 @@ jobs:
       - name: Build Frontend
         run: npm run build
         working-directory: ./frontend
-        env:
-          PUBLIC_URL: /karaoke1
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
