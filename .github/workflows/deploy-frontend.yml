@@ -34,5 +34,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages  # The branch the action should deploy to.
-          folder: frontend/build  # The folder the action should deploy. Adjust based on your build output directory.
+          folder: frontend/dist  # The folder the action should deploy. Adjust based on your build output directory.
           clean: true  # Automatically remove deleted files from the deploy branch
