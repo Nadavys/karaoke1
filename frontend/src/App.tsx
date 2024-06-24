@@ -4,8 +4,6 @@ import './App.css'
 import SongList from './components/SongList'
 import retroBg from './assets/retro-bg.jpg';
 
-
-
 function App() {
 
 
