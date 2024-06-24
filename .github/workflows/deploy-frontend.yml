@@ -1,27 +1,28 @@
 name: Deploy Frontend to GitHub Pages
 
-
-
 on:
   push:
     branches:
       - main  # Trigger the workflow on push events to the main branch
 
+permissions:  # Add permissions here
+      contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:  # Add permissions here
-      contents: write
+    
     steps:
       - uses: actions/checkout@v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: "npm"
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./frontend
 
       - name: Build Frontend
