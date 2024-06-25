@@ -7,6 +7,8 @@ from db import insert_data, db_close, make_json_file
 
 def main():
     load_dotenv()
+    # collect()   
+    
     # print(os.getenv("GOOGLE_API_KEY"))
     # youtube_search('Ryan McBeth')
     # db.read_data()

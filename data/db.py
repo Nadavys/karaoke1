@@ -7,9 +7,11 @@ import os
 # Connect to your postgres DB using the connection string
 
 load_dotenv()
+# conn = None
+
 #todo: might need to fix db config data
 conn = psycopg2.connect(os.environ.get('DB_URL'))
-
+print(conn)
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
