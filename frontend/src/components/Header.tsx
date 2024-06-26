@@ -21,11 +21,11 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery, foundVideo
         <header className="sticky top-0 shadow-md bg-slate-800 bg-opacity-50 backdrop-blur-lg py-2">
             <div className="flex container mx-auto">
                 {/* <h1 className='text-white text-center text-5xl pt-2 text-pink-200' style={{ fontFamily: 'Cursive', textShadow: '0 0 20px #FFF, 2px 2px 4px rgba(0, 0, 0, 1)' }} >Karaoke Party</h1> */}
-                <img src={logoImg} alt="logo" className=" max-h-[70px]" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+                <img src={logoImg} alt="logo" className="px-1 max-h-[75px]" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
                 <div className="mx-auto self-center">
                 {/* <div className="max-w-md mx-auto overflow-hidden md:max-w-xl self-center"> */}
                     {/* <div className="md:flex"> */}
-                    <div className="_w-full p-3 bg-white rounded-lg flex flex-wrap" >
+                    <div className="_w-full p-3 bg-white rounded-lg sm:flex" >
 
                         <SearchInput setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
                         {searchQuery && searchResult()}
