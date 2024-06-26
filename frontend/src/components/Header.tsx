@@ -9,10 +9,6 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery, foundVideoList }) => {
-
-
-
-
     const searchResult = () => {
         if (foundVideoList.length > 0) {
             return <div className="text-center text-blue-700 self-center">Found {foundVideoList.length} matches</div>;
@@ -26,7 +22,8 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery, foundVideo
             <div className="flex container mx-auto">
                 {/* <h1 className='text-white text-center text-5xl pt-2 text-pink-200' style={{ fontFamily: 'Cursive', textShadow: '0 0 20px #FFF, 2px 2px 4px rgba(0, 0, 0, 1)' }} >Karaoke Party</h1> */}
                 <img src={logoImg} alt="logo" className=" max-h-[70px]" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
-                <div className="max-w-md mx-auto overflow-hidden md:max-w-xl self-center">
+                <div className="mx-auto self-center">
+                {/* <div className="max-w-md mx-auto overflow-hidden md:max-w-xl self-center"> */}
                     {/* <div className="md:flex"> */}
                     <div className="_w-full p-3 bg-white rounded-lg flex flex-wrap" >
 
@@ -47,11 +44,11 @@ export default Header;
 
 function SearchInput({ searchQuery, setSearchQuery }: { searchQuery: string, setSearchQuery: (value: string) => void }): JSX.Element {
     return (
-        <div className="xl:w-96">
-            <div className="relative _mb-4 flex w-full flex-wrap items-stretch">
+        <div className="sm:w-96 _w-full">
+            <div className="relative flex w-full flex-wrap items-stretch">
                 <input
                     type="search"
-                    className="relative m-0 block flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                    className="w-fullrelative m-0 block flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
                     placeholder="Search"
                     aria-label="Search"
                     aria-describedby="button-addon2"
