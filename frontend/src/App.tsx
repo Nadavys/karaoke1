@@ -13,12 +13,9 @@ const queryParams = new URLSearchParams(window.location.search);
 const initialSearchQuery = queryParams.get('q') || '';
 
 function App() {
-
   const { getList } = useSongList()
   const [foundVideoList, setFoundVideoList] = useState<Video[]>([]); // Use state for list
 
-
-  console.log('initialSearchQuery', {initialSearchQuery}, queryParams)
   const [searchQuery, setSearchQuery] = useState(initialSearchQuery);
 
   useEffect(() => {
