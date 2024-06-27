@@ -8,11 +8,10 @@ import ReactGA from 'react-ga4';
 // Access the environment variable
 const gaMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
 console.log('mode',import.meta.env.MODE, gaMeasurementId)
-// const mode = import.meta.env.MODE;
+const mode = import.meta.env.MODE;
 
 // Initialize Google Analytics with the environment-specific measurement ID
-if (gaMeasurementId) {
-// if (gaMeasurementId && mode === 'production') {
+if (gaMeasurementId && mode === 'production') {
   ReactGA.initialize(gaMeasurementId);
 }
 
