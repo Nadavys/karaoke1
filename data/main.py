@@ -16,7 +16,7 @@ def main():
     
 
     make_json_file()
-    # collect()   
+    collect()   
         
     db_close()
     
