@@ -35,13 +35,13 @@ function SongItem({ item }: { item: Video }) {
     dispatch(addToPlaylist(video.id));
   }
   return (
-    <li className="transition-all delay-50 max-w-2xl mx-auto bg-gray-100 rounded-2xl border-2 border-gray-300 shadow-xl overflow-hidden hover:bg-purple-800 hover:text-white  my-4 cursor-pointer" onClick={() => handleClick(item)}>
+    <li className=" max-w-2xl mx-auto bg-gray-100 rounded-2xl border border-gray-500 shadow-xl overflow-hidden my-3 cursor-pointer" onClick={() => handleClick(item)}>
 
       <div className="flex" >
         <div className="flex flex-col justify-between flex-1 p-5" >
-          <p className="text-lg font-semibold">{item.title}</p>
+          <p className="text-lg _font-semibold">{item.title}</p>
 
-          <div className="flex  gap-1 justify-between mt-2">
+          <div className="flex  gap-1 justify-between mt-1">
             <button className="flex-1 text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-2 rounded">
               Play
             </button>
