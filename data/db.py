@@ -4,6 +4,7 @@ import psycopg2
 import json
 from dotenv import load_dotenv
 import os
+import requests
 # Connect to your postgres DB using the connection string
 
 load_dotenv()
@@ -92,4 +93,38 @@ def make_json_file():
             json.dump(data, f, indent=4)
         
         print("Data written to data.json")
-            
+        
+        
+def cleanup():
+    """
+    goes over every row in the database youtube_videos table.
+    make http call out to thumbnail url
+    see if returns 400 or 200.
+    400 means this video is removed
+    """
+    cur.execute('SELECT id, title, thumbnail FROM youtube_videos;')
+    rows = cur.fetchall()
+    removed_videos = []
+
+    for row in rows:
+        video_id, title, thumbnail = row
+        try:
+            response = requests.head(thumbnail, timeout=5)
+            if response.status_code >= 400:
+                removed_videos.append((video_id, title))
+                print(f"Video removed: {video_id} - {title}")
+        except requests.RequestException as e:
+            print(f"Error checking {video_id}: {e}")
+
+    if removed_videos:
+        print(f"\nFound {len(removed_videos)} removed videos:")
+        for video_id, title in removed_videos:
+            print(f"  - {video_id}: {title}")
+
+        # Delete removed videos from database
+        for video_id, _ in removed_videos:
+            cur.execute('DELETE FROM youtube_videos WHERE id = %s;', (video_id,))
+        conn.commit()
+        print(f">>> Deleted {len(removed_videos)} videos from database.")
+    else:
+        print("All videos are still available.")
