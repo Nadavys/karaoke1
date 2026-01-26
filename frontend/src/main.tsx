@@ -33,8 +33,10 @@ console.log('mode', import.meta.env.MODE, gaMeasurementId)
 const mode = import.meta.env.MODE;
 
 // Initialize Google Analytics with the environment-specific measurement ID
+console.log('GA Debug:', { mode, gaMeasurementId, willInitialize: !!(gaMeasurementId && mode === 'production') });
 if (gaMeasurementId && mode === 'production') {
   ReactGA.initialize(gaMeasurementId);
+  console.log('Google Analytics initialized');
 }
 
 const router = createBrowserRouter([
