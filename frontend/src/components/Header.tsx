@@ -1,5 +1,5 @@
 'use client'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import logoImg from '../assets/logo1.png'
 import { useState } from 'react'
 import {
@@ -18,20 +18,30 @@ import {
 
 import { useAppSelector } from '../redux/hooks'
 import { playListSize } from '../redux/playlistSlice'
+import SearchInput from './SearchInput'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const closeMenu = () => setMobileMenuOpen(false)
+  const location = useLocation()
+  const isSearchPage = location.pathname === '/'
 
   return (
     <header className="backdrop-blur-lg backdrop-saturate-50 _py-2 sticky top-0 " >
-      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between _p-6 lg:px-8">
+      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between py-2 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Karaoke Party</span>
             <img alt="" src={logoImg} className="_h-8 w-auto px-1 max-h-[65px]" />
           </a>
         </div>
+
+        {isSearchPage && (
+          <div className="hidden lg:flex flex-1 justify-center items-center">
+            <SearchInput />
+          </div>
+        )}
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -67,6 +77,11 @@ export default function Header() {
 
 
       </nav>
+      {isSearchPage && (
+        <div className="lg:hidden px-4 pb-2">
+          <SearchInput />
+        </div>
+      )}
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
