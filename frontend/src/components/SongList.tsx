@@ -39,7 +39,7 @@ function SongItem({ item }: { item: Video }) {
 
       <div className="flex" >
         <div className="flex flex-col justify-between flex-1 p-5" >
-          <p className="text-lg _font-semibold">{item.title}</p>
+          <p className="text-lg">{item.title}</p>
 
           <div className="flex  gap-1 justify-between mt-1">
             <button className="flex-1 text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-2 rounded">

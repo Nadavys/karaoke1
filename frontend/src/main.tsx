@@ -22,21 +22,17 @@ import Layout from './Layout.tsx';
 
 store.subscribe(
   debounce(() => {
-    console.log('saving store', store.getState())
     saveStateLocalStorage(store.getState());
   }, 1000)
 );
 
 // Access the environment variable
 const gaMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-console.log('mode', import.meta.env.MODE, gaMeasurementId)
 const mode = import.meta.env.MODE;
 
 // Initialize Google Analytics with the environment-specific measurement ID
-console.log('GA Debug:', { mode, gaMeasurementId, willInitialize: !!(gaMeasurementId && mode === 'production') });
 if (gaMeasurementId && mode === 'production') {
   ReactGA.initialize(gaMeasurementId);
-  console.log('Google Analytics initialized');
 }
 
 const router = createBrowserRouter([
@@ -45,7 +41,7 @@ const router = createBrowserRouter([
     element: <Layout><SongSearchApp /></Layout>,
   },
   {
-    path: "/PlayList",
+    path: "/playlist",
     element: <Layout><PlayList /></Layout>,
   },
   {

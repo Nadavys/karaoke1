@@ -22,7 +22,7 @@ function PlayListContainer() {
 }
 
 
-function PlayListView({ list }: { list: any[] }) {
+function PlayListView({ list }: { list: Video[] }) {
   const dispatch = useAppDispatch()
 
 
@@ -37,7 +37,7 @@ function PlayListView({ list }: { list: any[] }) {
     return (
       <div className="mx-auto mt-5 flex flex-col items-center bg-gradient-to-r from-blue-500 to-purple-600 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  ">
         <div className="p-5 flex-1">
-          <div className="_mb-2 text-2xl font-bold text-white text-center">The playlist is empty</div>
+          <div className="text-2xl font-bold text-white text-center">The playlist is empty</div>
         </div>
       </div>
     );
@@ -71,12 +71,11 @@ function SongItem({ item }: { item: Video }) {
     dispatch(removeFromPlaylist(video.id))
   }
   return (
-    <li className=" max-w-2xl mx-auto bg-gray-100 rounded-2xl border-2 border-gray-300 shadow-xl _overflow-hidden my-2" >
+    <li className=" max-w-2xl mx-auto bg-gray-100 rounded-2xl border-2 border-gray-300 shadow-xl my-2" >
       <div className="p-2">
-        {/* <div className="_flex-1 p-2"> */}
         <div className="text-md text-center" >{item.title}</div>
-        <div className=" _w-100 _flex _content-center _items-center mt-1">
-          <div className="_mx-auto _w-50 _flex _inline-flex rounded-md shadow-sm text-center" role="group">
+        <div className="mt-1">
+          <div className="rounded-md shadow-sm text-center" role="group">
             <button
               onClick={() => dispatch(moveDown(item.id))}
               type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white ">

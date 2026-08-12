@@ -27,12 +27,12 @@ export default function Header() {
   const isSearchPage = location.pathname === '/'
 
   return (
-    <header className="backdrop-blur-lg backdrop-saturate-50 _py-2 sticky top-0 " >
+    <header className="backdrop-blur-lg backdrop-saturate-50 sticky top-0 " >
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between py-2 lg:px-8">
         <div className="flex lg:flex-1">
           <NavLink to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Karaoke Party</span>
-            <img alt="" src={logoImg} className="_h-8 w-auto px-1 max-h-[65px]" />
+            <img alt="" src={logoImg} className="w-auto px-1 max-h-[65px]" />
           </NavLink>
         </div>
 
@@ -91,7 +91,7 @@ export default function Header() {
               <img
                 alt=""
                 src={logoImg}
-                className="_w-5 _w-auto w-20"
+                className="w-20"
               />
             </NavLink>
             <button
